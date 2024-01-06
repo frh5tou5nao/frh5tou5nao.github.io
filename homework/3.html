@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <style>
+    #container {
+      position: relative;
+      width: 600px;
+      height: 400px;
+      border: 3px solid #333;
+      overflow: hidden;
+    }
+
+    #list {
+      position: absolute;
+      z-index: 1;
+      width: 2400px;
+      height: 400px;
+      left: 0px;
+    }
+
+    #list img {
+      float: left;
+      width: 600px;
+      height: 400px;
+    }
+
+    #buttons {
+      position: absolute;
+      left: 250px;
+      bottom: 20px;
+      z-index: 2;
+      height: 10px;
+      width: 100px;
+    }
+
+    #buttons span {
+      float: left;
+      margin-right: 5px;
+      width: 10px;
+      height: 10px;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      background: #333;
+      cursor: pointer;
+    }
+
+    #buttons .on {
+      background: orangered;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 180px;
+      z-index: 2;
+      display: none;
+      width: 40px;
+      height: 40px;
+      font-size: 36px;
+      font-weight: bold;
+      line-height: 39px;
+      text-align: center;
+      color: #fff;
+      background-color: RGBA(0, 0, 0, 0.3);
+      cursor: pointer;
+    }
+
+    .arrow:hover {
+      background-color: RGBA(0, 0, 0, 0.7);
+    }
+
+    #container:hover .arrow {
+      display: block;
+    }
+
+    #prev {
+      left: 20px;
+      text-decoration: none;
+    }
+
+    #next {
+      right: 20px;
+      text-decoration: none;
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      var width = 600;
+      var list = document.getElementById("list");
+      var prev = document.getElementById("prev");
+      var next = document.getElementById("next");
+      var num = list.children.length; // get img number
+      var currentIndex = 0;
+      function animate(offset) {
+        var left = list.style.left ? parseInt(list.style.left) : 0;
+        var newLeft = left - offset * width;
+        list.style.left = newLeft + "px";
+        if (newLeft <= -num * width) {
+          list.style.left = "0px";
+        }
+        if (newLeft > 0) {
+          list.style.left = -(num - 1) * width + "px";
+        }
+      }
+      prev.onclick = function () {
+        animate(-1);
+      };
+      next.onclick = function () {
+        animate(1);
+      };
+      function autoMove() {
+        currentIndex++; 
+        if (currentIndex >= num) currentIndex = 0; 
+        animate(1);  
+      }
+
+      setInterval(autoMove, 1000); 
+
+    };
+
+
+
+  </script>
+</head>
+
+<body>
+  <div id="container">
+    <div id="list">
+      <img src="img/1.jpg" />
+      <img src="img/2.jpg" />
+      <img src="img/3.jpg" />
+      <img src="img/4.jpg" />
+    </div>
+    <div id="buttons">
+      <span index="1" class="on"></span>
+      <span index="2" class="on"></span>
+      <span index="3" class="on"></span>
+      <span index="4" class="on"></span>
+    </div>
+    <a href="javascript:;" id="prev" class="arrow">&lt;</a>
+    <a href="javascript:;" id="next" class="arrow">&gt;</a>
+  </div>
+</body>
+
+</html>
