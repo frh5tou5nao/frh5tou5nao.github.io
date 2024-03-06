@@ -1,0 +1,33 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+  <style>  
+  body{
+    background-color: yellowgreen;
+  }
+    .scroll-text {  
+      position: absolute;  
+      top: 50%;  
+      left: 50%;  
+      transform: translate(-50%, -50%);  
+      white-space: nowrap;  
+      animation: scroll-text 10s linear infinite;  
+    }  
+  
+    @keyframes scroll-text {  
+      0% {  
+        transform: translate(-50%, -50%) rotate(0deg);  
+      }  
+      100% {  
+        transform: translate(-50%, -50%) rotate(360deg);  
+      }  
+    }  
+  </style>  
+</head>  
+<body>  
+  <div class="scroll-text">  
+    <p>空无一人.......</p>  
+    <a href="index.html">返回首页</a>
+  </div>  
+</body>  
+</html>
