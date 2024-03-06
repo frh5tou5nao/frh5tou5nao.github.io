@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUIBE宿舍</title>
+    <link rel="stylesheet" href="maincss.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="/img/back.png" />
+</head>
+
+<body>
+    <div class="header">
+        <h1>Suibe宿舍</h1>
+    </div>
+    <div class="nav">
+        <a href="index.html">首页</a>
+        <a href="dormitory.html">宿舍信息</a>
+        <a href="score.html">宿舍排名</a>   
+        <a href="login.html">切换账户</a>
+
+    </div>
+    <div class="main">
+        <!-- 这里可以放置你的网站内容 -->
+        <h2>欢迎来到Suibe宿舍</h2>
+        <div class="container">
+            <div id="list">
+                <img id="myImage" src="img/1.jpg" width="800" height="600">
+                <img src="img/1.jpg" />
+                <img src="img/2.jpg" />
+                <img src="img/3.jpg" />
+                <img src="img/4.jpg" />
+            </div>
+            <div id="buttons">
+                <span index="1" class="on"></span>
+                <span index="2"></span>
+                <span index="3"></span>
+                <span index="4"></span>
+            </div>
+            <a href="javascript:;" id="prev" class="arrow">&lt;</a>
+            <a href="javascript:;" id="next" class="arrow">&gt;</a>
+        </div>
+        <div class="scroll-text">
+            <p>保持卫生：请确保你的个人卫生，并尽量保持宿舍整洁。公共区域应由所有室友共同维护。</p>
+            <p>安静时段：晚上11点后，请尽量降低噪音，尊重他人的休息。考试周或特殊情况下，可能需要更早的安静时间。</p>
+            <p>节约能源：请在离开房间时关灯，不要浪费电力。夏天和冬天应适当调节空调温度，避免过高或过低的温度。</p>
+            <p> 轮流值日：公共区域的清洁应由室友轮流负责，比如每周一次或两次。</p>
+            <p> 禁止违规物品：请勿在宿舍内使用违规电器，如电饭煲、热水壶等。同时，禁止吸烟和饮酒。</p>
+            <p> 合理安排时间：学习和娱乐时间要平衡，避免过度占用公共空间和时间。</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2023 Suibe宿舍. All rights reserved.
+        社交媒体链接：<a href="https://www.suibe.edu.cn">上海对外经贸大学</a>
+    </div>
+    <div id="goback" onclick="changeit()">
+        <p>点我</p>
+    </div>
+</body>
+<script>
+    function changeit() {
+        var thebox = document.getElementById("goback")
+        var r = Math.floor(Math.random() * 256)
+        var g = Math.floor(Math.random() * 256)
+        var b = Math.floor(Math.random() * 256)
+        thebox.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")"
+    }
+
+    window.onload = function () {
+        var width = 600;
+        var list = document.getElementById("list");
+        var prev = document.getElementById("prev");
+        var next = document.getElementById("next");
+        var num = list.children.length; // get img number
+        function animate(offset) {
+            var left = list.style.left ? parseInt(list.style.left) : 0;
+            var newLeft = left - offset * width;
+            list.style.left = newLeft + "px";
+            if (newLeft <= -num * width) {
+                list.style.left = "0px";
+            }
+            if (newLeft > 0) {
+                list.style.left = -(num - 1) * width + "px";
+            }
+        }
+        prev.onclick = function () {
+            animate(-1);
+        };
+        next.onclick = function () {
+            animate(1);
+
+        };
+    };
+
+    var images = ["img/2.jpg", "img/3.jpg", "img/4.jpg"]; 
+        var index = 0; 
+
+        function changeImage() {
+            document.getElementById("myImage").src = images[index]; 
+
+            index++; 
+            if (index >= images.length) { 
+                index = 0;
+            }
+        }
+
+        setInterval(changeImage, 1200); 
+</script>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="scorec.css" />
+
+</head>
+
+<body>
+  <div class="head">
+    <div class="marquee">  
+      <span id="marqueeText" style="color: #ff0000;">月度优秀寝室</span>  
+    </div>  
+  </div>
+  <div class="main">
+    <div class="scroll-text">
+      <p>最佳优秀寝室：#44-405</p>
+      <p>次佳优秀寝室：#44-406</p>
+      <p>优秀寝室：#43-101</p>
+      <p>优秀寝室：#42-102</p>
+      <p>优秀寝室：#42-202</p>
+      <p>优秀寝室：#42-303</p>
+      <p>优秀寝室：#42-404</p>
+      <p>优秀寝室：#42-505</p>
+      <p>优秀寝室：#42-303</p>
+      <p>优秀寝室：#42-102</p>
+      <p>优秀寝室：#42-301</p>
+      <p>优秀寝室：#42-412</p>
+      <p>优秀寝室：#42-105</p>
+      <p>优秀寝室：#42-508</p>
+      <p>优秀寝室：#42-601</p>
+      <p>优秀寝室：#42-106</p>
+      <p>----------------------------------------</p>
+    </div>
+  </div>
+  <div class="leftpho">
+    <img src="/img/6.gif" alt="Your Image" class="rotate" ">  
+  </div>
+  <div class="rightpho">
+    <img src="/img/8.png" alt="Your Image" class="rotate" height="250px" weight="250px;">  
+  </div>
+  <div class="footer">
+    <a href="index.html">返回首页</a>
+  </div>
+  <img id="myImage" src="/img/7.png" alt="Your Image" height="100px" weight="100px">  
+</body>
+<script>  
+  // 随机变色函数  
+  function randomColor() {  
+    var letters = '0123456789ABCDEF';  
+    var color = '#';  
+    for (var i = 0; i < 6; i++) {  
+      color += letters[Math.floor(Math.random() * 16)];  
+    }  
+    return color;  
+  }  
+
+  // 每隔5秒变色一次  
+  setInterval(function() {  
+    var textElement = document.getElementById('marqueeText');  
+    if (textElement) {  
+      textElement.style.color = randomColor();  
+    }  
+  }, 300);  
+
+   // 获取图片元素  
+   var img = document.getElementById("myImage");  
+  
+  // 设置随机移动函数  
+  function randomMove() {  
+      // 获取页面宽度和高度  
+      var pageWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;  
+      var pageHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;  
+
+      // 生成随机位置  
+      var randomTop = Math.random() * (pageHeight - img.height);  
+      var randomLeft = Math.random() * (pageWidth - img.width);  
+
+      // 设置图片位置  
+      img.style.top = randomTop + "px";  
+      img.style.left = randomLeft + "px";  
+  }  
+
+  // 每隔一段时间调用randomMove函数，使图片随机移动  
+  setInterval(randomMove, 500); // 每秒调用一次randomMove函数  
+</script>  
+</html>
