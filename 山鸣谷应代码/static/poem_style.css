@@ -1,0 +1,51 @@
+@keyframes slideDown {
+  0% {
+    margin-top: -100%;
+    opacity: 0;
+  }
+  100% {
+    margin-top: 260px;
+    opacity: 1;
+  }
+}
+.text{
+    font-family: 'serif';
+    color: black;
+    margin-left: 180px;
+    margin-top: 260px;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    animation: slideDown 8s ease-out forwards;
+  opacity: 0;
+}
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+    background-image: url('{{ background_image }}');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.return-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.return-button:hover {
+    background-color: #45a049;
+}

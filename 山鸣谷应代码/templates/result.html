@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+	<head>
+		<title>山鸣谷应</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ STATIC_URL }}/style.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}/style-noscript.css">
+		<script src="{{ STATIC_URL }}/skel.min.js"></script>
+	</head>
+	<body class="loading">
+	<script src="{{ STATIC_URL }}/init.js"></script>
+        
+		<div id="wrapper">
+			<div id="bg"></div>
+			<div id="overlay"></div>
+			<div id="main">
+					<header id="header">
+                        <h1>山鸣谷应</h1>
+                        <form action="/" method="post">
+						    <p>输入古诗：</p>
+                            <input autocomplete="off" autofocus name = "name" placeholder="古诗" type="text" style="color: black;"/>
+                            <button type="submit">生成</button>
+                        </form>
+					</header>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>诗集</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='poem_style.css') }}">
+    <style>
+        body {
+            background-image: url('{{ background_image }}');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+.audio-player {
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="audio-player">
+        <audio controls autoplay>
+            <source src="{{ audio_url }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <div class="text">
+    <h1 style="color:black">{{ msg }}</h1>
+<button class="return-button" onclick="window.location.href='{{ url_for('index') }}';">返回</button>
+</div>
+
+</body>
+</html>
